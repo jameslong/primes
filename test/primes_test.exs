@@ -28,4 +28,13 @@ defmodule PrimesTest do
   test "first 10 primes" do
     assert Primes.first_n_primes(10) == @first_10_primes
   end
+
+  test "sanity check first 1000 primes" do
+    result = Primes.first_n_primes(1000)
+    assert Enum.all?([
+      length(result) == 1000,
+      Enum.all?(result, &Primes.prime?/1)
+      List.last(result) == 7919
+    ])
+  end
 end
