@@ -25,6 +25,10 @@ defmodule PrimesTest do
     assert Primes.first_n_primes(1) == [2]
   end
 
+  test "first two primes" do
+    assert Primes.first_n_primes(2) == [2, 3]
+  end
+
   test "first 10 primes" do
     assert Primes.first_n_primes(10) == @first_10_primes
   end
