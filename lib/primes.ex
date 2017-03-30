@@ -11,6 +11,12 @@ defmodule Primes do
     |> Enum.all?(&(rem(x, &1) != 0))
   end
 
+  def prime_multiplication_table(n) do
+    n
+    |> Primes.SieveOfEratosthenes.first_n_primes()
+    |> Primes.MultiplicationTable.generate_and_print_table()
+  end
+
   def compare_solutions(n \\ 100_000) do
     to_test = [
       {"Brute force", &Primes.BruteForce.first_n_primes/1},
