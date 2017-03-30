@@ -24,7 +24,14 @@ defmodule Primes.MultiplicationTableTest do
   end
 
   test "print non-empty table" do
-    fun = fn -> MultiplicationTable.print_table([2, 3, 5]) end
+    table = [
+      [nil, 2, 3, 5],
+      [2, 4, 6, 10],
+      [3, 6, 9, 15],
+      [5, 10, 15, 25],
+    ]
+
+    fun = fn -> MultiplicationTable.print_table(table) end
     assert capture_io(fun) == """
       |   | 2 | 3 | 5 |
       | 2 | 4 | 6 | 10 |
