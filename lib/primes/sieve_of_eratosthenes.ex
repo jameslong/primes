@@ -1,9 +1,7 @@
 defmodule Primes.SieveOfEratosthenes do
   @moduledoc """
-  Lazy Sieve of EratosthenesBrute force prime number generator.
+  Lazy Sieve of Eratosthenes prime number generator.
   """
-
-  alias Primes
 
   def first_n_primes(1), do: [2]
   def first_n_primes(2), do: [2, 3]
@@ -24,9 +22,8 @@ defmodule Primes.SieveOfEratosthenes do
           {[], updated_acc}
       end
     end)
-    |> Stream.take(n - 1)
-    |> Enum.to_list()
-    |> (fn list -> [2 | list] end).()
+    |> Enum.take(n - 1)
+    |> List.insert_at(0, 2)
   end
 
   defp add_to_key_value(map, key, value) do
